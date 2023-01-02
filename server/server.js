@@ -1,14 +1,16 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
-import { Configuration,OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi } from 'openai';
 
 
 dotenv.config();
 
+console.log(process.env.OpenAI_API_KEY)
+
 
 const configuration = new Configuration({
-    apiKey: process.env.OpenAI_API_KEY
+    apiKey: process.env.OpenAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -31,7 +33,7 @@ app.post('/', async(req, res) => {
            model: "text-davinci-003",
            prompt: `${prompt}`,
            temperature: 0,         // <<HUGE SECURITY RISK KEEP TO 0!!!!
-           max_tokens: 4000,
+           max_tokens: 3000,
            top_p: 1,
            frequency_penalty: 0.5,   //Not going to repeat the similar answers keep set to 0-0.8
         presence_penalty: 0,
