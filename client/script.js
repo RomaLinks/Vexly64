@@ -86,7 +86,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://vexley666.onrender.com', {
+    const response = await fetch('https://vexley666.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "What the fuck happened?"
+        messageDiv.innerHTML = "What the fucking error??"
         alert(err)
     }
 }
